@@ -2,6 +2,7 @@ package Medium;
 
 public class MostWaterSolution {
     public int maxArea(int[] height) {
+        //First my try
 //        int maxArea = 0;
 //        for(int i=0;i<height.length;i++){
 //            for (int j=i;j< height.length;j++){
@@ -17,6 +18,7 @@ public class MostWaterSolution {
 //        }
 //        return maxArea;
 //
+        //Second my try
 /*
 
         int maxHeight = 0;
