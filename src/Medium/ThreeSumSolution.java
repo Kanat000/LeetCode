@@ -7,24 +7,18 @@ import java.util.List;
 
 public class ThreeSumSolution {
     public static List<List<Integer>> threeSum(int[] nums) {
-       List<List<Integer>> solutionArr = new ArrayList<>(2);
-        List<Integer> sortedNums = new ArrayList<>(2);
+        List<List<Integer>> solutionArr = new ArrayList<>(2);
+       Arrays.sort(nums);
 
-       for(int num:nums){
-           sortedNums.add(num);
-       }
-        Collections.sort(sortedNums);
-        Collections.reverse(sortedNums);
-        System.out.println(sortedNums);
-        for(int i=0;i<sortedNums.size()-2;i++){
+        for(int i=0;i<nums.length-2;i++){
             int j = i+1;
-            int k = sortedNums.size()-1;
+            int k = nums.length-1;
             while (j<k){
                 System.out.println(i+" "+j+" "+k);
-                int sum = sortedNums.get(i)+sortedNums.get(j)+sortedNums.get(k);
+                int sum = nums[i]+nums[j]+nums[k];
                 System.out.println(sum);
                 if(sum == 0){
-                    List<Integer> answerArr = Arrays.asList(sortedNums.get(i),sortedNums.get(j),sortedNums.get(k));
+                    List<Integer> answerArr = Arrays.asList(nums[i],nums[j],nums[k]);
                     Collections.sort(answerArr);
                     if (!solutionArr.contains(answerArr))
                         solutionArr.add(answerArr);
@@ -33,8 +27,8 @@ public class ThreeSumSolution {
 
                 }
                 else if (sum < 0)
-                    k--;
-                else j++;
+                    j++;
+                else k--;
             }
         }
         return solutionArr;
